@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		student = {
+			name:"arjun",
+			age:12,
+			email:"asdf@asdf.om",
+			spi:[5.2,1.2,6.2,8.5],
+			cpi:0,
+			printMe: function (){ 
+				console.log("Name = ", this.name);
+				console.log("Age = ", this.age);
+				console.log("Email = ", this.email);
+				console.log("CPI = ", this.cpi);
+			},
+			calculateCPI: function (){
+				total = 0;
+				for(i=0;i<this.spi.length;i++){
+					total+= this.spi[i];
+				}
+				this.cpi = total/this.spi.length;
+			}
+		}
+
+		student.calculateCPI();
+		student.printMe();
+
+	</script>
+</body>
+</html>

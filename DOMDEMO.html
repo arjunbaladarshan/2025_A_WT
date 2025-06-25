@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#myImg{
+			width: 100px ;
+			position: relative;
+			left:300px;
+
+		}
+	</style>
+</head>
+<body>
+	<button onclick="increaseWidth()">+</button>
+	<button onclick="decreaseWidth()">-</button>
+
+	<button onclick="startRight()">-></button>
+	<button onclick="startLeft()"><-</button>
+	<br/>
+	<img src="CEAVB.jpg" id="myImg">
+
+	<script type="text/javascript">
+		imgWidth = 100;
+		imgLeft = 300;
+		leftrightInt = 0;
+		function increaseWidth(){
+			imgWidth += 10;
+			imgRef = document.getElementById("myImg");
+			imgRef.style.width = imgWidth+"px";
+		}
+		function decreaseWidth(){
+			imgWidth -= 10;
+			imgRef = document.getElementById("myImg");
+			imgRef.style.width = imgWidth+"px";
+		}
+
+		function startRight(){
+			clearInterval(leftrightInt);
+			leftrightInt = setInterval(goRight,20)
+		}
+
+		function goRight(){
+			imgLeft++;
+			imgRef = document.getElementById("myImg");
+			imgRef.style.left = imgLeft+"px";
+		}
+
+		function startLeft(){
+			clearInterval(leftrightInt);
+			leftrightInt = setInterval(goLeft,20)
+		}
+
+		function goLeft(){
+			imgLeft--;
+			imgRef = document.getElementById("myImg");
+			imgRef.style.left = imgLeft+"px";
+		}
+	</script>
+</body>
+</html>

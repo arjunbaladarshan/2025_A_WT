@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#myImg{
+			position: relative;
+			left: 0px;
+			top:0px;
+		}
+	</style>
+</head>
+<body>
+	<img src="DVD_logo.svg.png" width="100px" id="myImg">
+
+	<script type="text/javascript">
+		currentX = 0;
+		currentDirX = 1;
+		currentY = 0;
+		currentDirY = 1;
+		function moveDVD(){
+			currentX = currentX + currentDirX;
+			currentY = currentY + currentDirY;
+			if(currentX>screen.availWidth-100){
+				currentDirX = -1;
+			}
+			if(currentX<0){
+				currentDirX = 1;
+			}
+
+			if(currentY>screen.availHeight-100){
+				currentDirY = -1;
+			}
+			if(currentY<0){
+				currentDirY = 1;
+			}
+
+			
+			
+			imgRef = document.getElementById("myImg")
+			imgRef.style.left = currentX+"px";
+			imgRef.style.top = currentY+"px";
+		}
+
+		setInterval(moveDVD, 1);
+	</script>
+</body>
+</html>

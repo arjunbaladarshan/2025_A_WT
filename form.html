@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#err{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="err"></div>
+	<form name="loginForm">
+		<input type="text" name="txtUserName" />
+		<input type="text" name="txtPassword" />
+		<input type="button" onclick="saveData()" value="Login" />
+	</form>
+
+	<script type="text/javascript">
+		function saveData(){
+			formData = document.forms["loginForm"];
+			errRef = document.getElementById("err");
+			if(formData.txtUserName.value=="admin" && formData.txtPassword.value=="darshan"){
+
+			}
+			else{
+				errRef.innerHTML = "username/password does not match"
+			}
+		}
+	</script>
+</body>
+</html>

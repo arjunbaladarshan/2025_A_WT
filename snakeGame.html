@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <style>
+      #myImg{
+        position: absolute;
+        top: 100px;
+        left:0px
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="startLeft()">Left</button>
+    <button onclick="startRight()">Right</button>
+    <button onclick="startTop()">Top</button>
+    <button onclick="startBottom()">Bottom</button>
+    <h1>Current Life : <span id="currentLifeSpan">3</span></h1>
+    <img src="snakeR.png" id="myImg" />
+
+    <script>
+      currentX = 0;
+      currentY = 100;
+      intRef = 0;
+      currentLife = 3;
+
+      function checkLimit(){
+        if(currentX>screen.availWidth-85 || currentX<0 || currentY>screen.availHeight-85 || currentY<0){
+          currentLife--;
+          currentX = screen.availWidth/2;
+          currentY = screen.availHeight/2;
+          document.getElementById("currentLifeSpan").innerHTML = currentLife;
+        }
+        if(currentLife<0){
+          document.body.innerHTML = "<img src='gameOver.gif' />"
+        }
+      }
+
+      function startRight(){
+        clearInterval(intRef);
+        intRef = setInterval(moveRight,5);
+      }
+      function moveRight(){
+        currentX++;
+        imgRef = document.getElementById("myImg");
+        imgRef.src = "snakeR.png";
+        imgRef.style.left = currentX + "px";
+        checkLimit();
+      }
+
+      function startLeft(){
+        clearInterval(intRef);
+        intRef = setInterval(moveLeft,5);
+      }
+      function moveLeft(){
+        currentX--;
+        imgRef = document.getElementById("myImg");
+        imgRef.src = "snakeL.png";
+        imgRef.style.left = currentX + "px";
+        checkLimit();
+      }
+
+      function startTop(){
+        clearInterval(intRef);
+        intRef = setInterval(moveTop,5);
+      }
+      function moveTop(){
+        currentY--;
+        imgRef = document.getElementById("myImg");
+        imgRef.src = "snakeT.png";
+        imgRef.style.top = currentY + "px";
+        checkLimit();
+      }
+
+      function startBottom(){
+        clearInterval(intRef);
+        intRef = setInterval(moveBottom,5);
+      }
+      function moveBottom(){
+        currentY++;
+        imgRef = document.getElementById("myImg");
+        imgRef.src = "snakeB.png";
+        imgRef.style.top = currentY + "px";
+        checkLimit();
+      }
+    </script>
+  </body>
+</html>

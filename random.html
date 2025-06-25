@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<input type="text" id="txtInput" />
+	<button onclick="validateMe()">Click</button>
+	<h1 id="txtOutput">Output here</h1>
+	<script type="text/javascript">
+		function validateMe(){
+			a = document.getElementById("txtInput");
+			b = document.getElementById("txtOutput");
+			
+			pattern = "^$";
+
+			regexp = new RegExp(pattern);
+
+			if(regexp.test(a.value)){
+				a.value.substr()
+				b.innerHTML = "Valid";
+			}
+			else{
+				b.innerHTML = "Invalid";
+			}
+
+
+		}
+	</script>
+</body>
+</html>

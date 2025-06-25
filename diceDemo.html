@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<button onclick="rollDice()">ROLL</button>
+	<br/>
+	<img src="dice1.jpg" id="myImg1">
+	<img src="dice1.jpg" id="myImg2">
+
+	<script type="text/javascript">
+		function rollDice(){
+			rn = parseInt((Math.random()*6)+1)
+			imgRef1 = document.getElementById("myImg1");
+			imgRef1.src = "dice"+rn+".jpg";
+
+			rn = parseInt((Math.random()*6)+1)
+			imgRef2 = document.getElementById("myImg2");
+			imgRef2.src = "dice"+rn+".jpg";
+		}
+	</script>
+</body>
+</html>

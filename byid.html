@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		for(i=101;i<201;i++){
+			document.write("<input type='checkbox' value='"+i+"' /> "+i)
+		}
+	</script>
+	<br/>
+	<button onclick="takeAttendance()">Take attendance</button>
+
+
+	<button onclick="allPresent()">All Present</button>
+	<button onclick="allAbsent()">All Absent</button>
+	<script type="text/javascript">
+		function allPresent(){
+			inputRef = document.getElementsByTagName("input");
+
+			for(i=0;i<inputRef.length;i++){
+				inputRef[i].checked = true;
+			}
+		}
+		function allAbsent(){
+			inputRef = document.getElementsByTagName("input");
+
+			for(i=0;i<inputRef.length;i++){
+				inputRef[i].checked = false;
+			}
+		}
+
+		function takeAttendance(){
+			inputRef = document.getElementsByTagName("input");
+			absentNos = ""
+			for(i=0;i<inputRef.length;i++){
+				if(!inputRef[i].checked){
+					absentNos+= inputRef[i].value+", "
+				}
+			}
+			console.log(absentNos);
+		}
+	</script>
+</body>
+</html>
