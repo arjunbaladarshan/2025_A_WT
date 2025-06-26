@@ -6,21 +6,47 @@
         top: 100px;
         left:0px
       }
+      #khavanu{
+        position: absolute;
+        left: 300px;
+        top: 300px;
+      }
     </style>
   </head>
-  <body>
+  <body onkeyup="checkInput(event)">
     <button onclick="startLeft()">Left</button>
     <button onclick="startRight()">Right</button>
     <button onclick="startTop()">Top</button>
     <button onclick="startBottom()">Bottom</button>
-    <h1>Current Life : <span id="currentLifeSpan">3</span></h1>
+    <h1>Current Life : <span id="currentLifeSpan">3</span>, Current Score : <span id="currentScoreSpan">0</span></h1>
     <img src="snakeR.png" id="myImg" />
-
+    <img src="apple.png" id="khavanu" onclick="changeKhavanuPosition()"/>
     <script>
       currentX = 0;
       currentY = 100;
       intRef = 0;
       currentLife = 3;
+      currentScore = -1;
+
+      khavanuX = 300;
+      khavanuY = 300;
+
+      currentSpeed = 10;
+
+      function checkInput(e){
+        if(e.key=="ArrowUp"){
+          startTop();
+        }
+        if(e.key=="ArrowDown"){
+          startBottom();
+        }
+        if(e.key=="ArrowLeft"){
+          startLeft();
+        }
+        if(e.key=="ArrowRight"){
+          startRight();
+        }
+      }
 
       function checkLimit(){
         if(currentX>screen.availWidth-85 || currentX<0 || currentY>screen.availHeight-85 || currentY<0){
@@ -32,11 +58,16 @@
         if(currentLife<0){
           document.body.innerHTML = "<img src='gameOver.gif' />"
         }
+
+        if((khavanuX<currentX+100 && khavanuX>currentX-100) && (khavanuY<currentY+100 && khavanuY>currentY-100)){
+          changeKhavanuPosition();
+        }
+
       }
 
       function startRight(){
         clearInterval(intRef);
-        intRef = setInterval(moveRight,5);
+        intRef = setInterval(moveRight,currentSpeed);
       }
       function moveRight(){
         currentX++;
@@ -48,7 +79,7 @@
 
       function startLeft(){
         clearInterval(intRef);
-        intRef = setInterval(moveLeft,5);
+        intRef = setInterval(moveLeft,currentSpeed);
       }
       function moveLeft(){
         currentX--;
@@ -60,7 +91,7 @@
 
       function startTop(){
         clearInterval(intRef);
-        intRef = setInterval(moveTop,5);
+        intRef = setInterval(moveTop,currentSpeed);
       }
       function moveTop(){
         currentY--;
@@ -72,7 +103,7 @@
 
       function startBottom(){
         clearInterval(intRef);
-        intRef = setInterval(moveBottom,5);
+        intRef = setInterval(moveBottom,currentSpeed);
       }
       function moveBottom(){
         currentY++;
@@ -81,6 +112,27 @@
         imgRef.style.top = currentY + "px";
         checkLimit();
       }
+
+
+      function changeKhavanuPosition(){
+        currentScore++;
+        if(currentScore>5){
+          currentSpeed = 5;
+        }
+        if(currentSpeed>10){
+          currentSpeed=1;
+        }
+        document.getElementById("currentScoreSpan").innerHTML = currentScore;
+        khavanuX = parseInt(Math.random() * (screen.availWidth-100));
+        khavanuY = parseInt(Math.random() * (screen.availHeight-100));
+
+        khavanuRef = document.getElementById("khavanu")
+        khavanuRef.style.left = khavanuX+"px";
+        khavanuRef.style.top = khavanuY+"px";
+      }
+
+      changeKhavanuPosition();
+
     </script>
   </body>
 </html>
