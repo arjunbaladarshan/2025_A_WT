@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <style>
+      #errFN{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="finalValidate(event)" action="http://darshan.ac.in">
+    <table>
+      <tr>
+        <td>Enter First name</td>
+        <td><input onblur="validate(event)" onfocus="clearValidation()" id="txtFN" type="text" /></td>
+        <td id="errFN"></td>
+      </tr>
+      <tr>
+        <td>Enter Last name</td>
+        <td><input type="text" /></td>
+      </tr>
+      <tr>
+        <td>Enter Password</td>
+        <td><input type="text" /></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><input type="submit" /></td>
+      </tr>
+    </table>
+    </form>
+
+    <script>
+      function clearValidation(){
+        document.getElementById("errFN").innerHTML = "";
+      }
+      isValid = false;
+      function validate(e){
+        ref = e.target;
+        pattern = "[0-9]";
+        regex = new RegExp(pattern);
+        if(regex.test(ref.value)){
+          document.getElementById("errFN").innerHTML = "First name can not contain digits";
+        }
+        else{
+          isValid = true;
+          document.getElementById("errFN").innerHTML = "";
+        }
+      }
+
+      function finalValidate(e){
+        if(!isValid){
+          e.preventDefault();
+        }
+      }
+    </script>
+
+
+  </body>
+</html>
