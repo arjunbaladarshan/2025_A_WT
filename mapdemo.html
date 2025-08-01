@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    names = [
+      {name:"uni",spi:2.5,dept:"CSE"},
+      {name:"bala",spi:8.2,dept:"MECH"},
+      {name:"darshan",spi:9.5,dept:"CIVIL"},
+      {name:"college",spi:2.1,dept:"CSE"},
+    ];
+
+    document.write("<table border='1'>");
+    
+    ans = names.map(temp=>"<tr><td>"+temp.name+"</td><td>"+temp.spi+"</td><td>"+temp.dept+"</td></tr>");
+    document.write(ans.join(""));
+    
+    document.write("</table>");
+  </script>
+</body>
+</html>

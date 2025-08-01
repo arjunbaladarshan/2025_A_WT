@@ -1,0 +1,21 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <script>
+      a = 10;
+      function demo(){
+        const a = 20;
+        if(true){
+          let a = 30;
+          console.log("Inside Block = ",a);
+        }
+        console.log("Inside function = ",a);
+      }
+
+      demo();
+      console.log("Outside function = ",a);
+    </script>
+  </body>
+</html>

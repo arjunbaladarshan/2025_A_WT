@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../jquery-1.10.2.js">
+</script>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideDown("slow");
+
+  });
+});
+</script>
+ 
+<style type="text/css"> 
+#panel,#flip
+{
+padding:15px;
+text-align:center;
+background-color:#ace806;
+border:solid 1px #fc0606;
+}
+#panel
+{
+padding:50px;
+display:none;
+}
+</style>
+</head>
+<body>
+ 
+<div id="flip">Click to slide down panel</div>
+<div id="panel">Hello world!</div>
+
+</body>
+</html>

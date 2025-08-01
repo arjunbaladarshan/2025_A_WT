@@ -1,0 +1,47 @@
+<html>
+  <body>
+    <script>
+      arr = [
+        {name:"arjun",spi:2.5},
+        {name:"bala",spi:7.3},
+        {name:"darshan",spi:6.9},
+        {name:"college",spi:9.6},
+        {name:"rajkot",spi:8.3},
+      ];
+      // b = a.filter(n=> n.spi>8);
+
+      // old vanila JS loop
+      for(i=0;i<arr.length;i++){
+        // console.log(arr[i].name);
+      }
+
+      // for-in loop
+      for(i in arr){
+        // console.log(arr[i].name);
+      }
+
+      // for-of loop
+      for(i of arr){
+        // console.log(i.name);
+      }
+
+      // forEach method
+      // arr.forEach((i)=>{console.log(i.name)});
+
+      total = 0;
+      for(stu of arr){
+        total+=stu.spi;
+      }
+      console.log("Total using loop = ",total);
+
+
+      ans = arr.reduce((total,stu)=>{
+        total+=stu.spi;
+        return total;
+      },0);
+
+      console.log("Total using reduce = ",ans)
+
+    </script>
+  </body>
+</html>

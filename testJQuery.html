@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div>Ek dam maja ma</div>
+	<p id="hello">How are you??</p>
+	<div>Kem che?</div>
+
+	<span id="myImg" style="display: none;">
+		<img width="500px" src="DVD_logo.svg.png">
+	</span>
+	<br/>
+
+	<input type="text" name="">
+	<input type="text" name="">
+	<input type="text" name="">
+
+	<button id="btn1">Click 1</button>
+	<button onclick="btn2()">Click 2</button>
+	
+	<script type="text/javascript">
+		function btn2(){
+			$("#hello").prepend("Btn clicked");
+		}
+
+		$(document).ready(()=>{
+			$("#btn1").click(()=>{
+				$("span").slideToggle("slow")
+			});
+
+			$("input").focus(function(){
+				this.style.backgroundColor="red"
+			})
+
+			$("div").mouseenter(function(){
+				this.style.backgroundColor="red";
+			})
+
+			$("div").mouseout(function(){
+				this.style.backgroundColor="white";
+			})
+			$("div").click(function(){
+				$(this).hide();
+			})
+		})
+	</script>
+</body>
+</html>

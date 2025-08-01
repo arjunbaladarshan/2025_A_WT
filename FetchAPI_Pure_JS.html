@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	
+</head>
+<body>
+	<button onclick="loadStudent()">Load Student</button>
+	<button onclick="loadLaptop()">Load Laptop</button>
+	<div id="loadDiv">
+		
+	</div>
+
+	<script type="text/javascript">
+		function loadStudent(){
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				data = JSON.parse(this.responseText);
+				console.log(data)
+				foramtedStudents = data.map((s)=>{
+					let ans = "<tr>";
+					ans += "<td>";
+					ans += s.subjectName;
+					ans += "</td>";
+					ans += "</tr>";
+					return ans;
+				});
+				document.getElementById("loadDiv").innerHTML = "<table border=1>"+ foramtedStudents.join(" ") + "</table>";
+			}
+			xhttp.open("GET", "https://62d6c51451e6e8f06f12bd5d.mockapi.io/faculties", true);
+			xhttp.send();
+		}
+		function loadLaptop(){
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				data = JSON.parse(this.responseText);
+				console.log(data)
+				foramtedStudents = data.map((s)=>{
+					let ans = "<tr>";
+					ans += "<td>";
+					ans += s.FacultyName;
+					ans += "</td>";
+					ans += "</tr>";
+					return ans;
+				});
+				document.getElementById("loadDiv").innerHTML = "<table border=1>"+ foramtedStudents.join(" ") + "</table>";
+			}
+			xhttp.open("GET", "https://62d6c51451e6e8f06f12bd5d.mockapi.io/laptops", true);
+			xhttp.send();
+		}
+	</script>
+</body>
+</html>

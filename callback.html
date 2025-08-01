@@ -1,0 +1,24 @@
+<html>
+
+  <head>
+    
+  </head>
+  <body>
+    <script>
+      ans = 0;
+      function printResult(){
+        console.log("Answer = ",ans);
+      }
+
+      function calculateData(cb){
+        setTimeout(()=>{
+          ans = 150;
+          cb();
+        },200);
+      }
+
+      calculateData(printResult);
+
+    </script>
+  </body>
+</html>
